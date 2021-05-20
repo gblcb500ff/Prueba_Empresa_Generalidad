@@ -1,33 +1,3 @@
-/* const { webkit} = require('playwright');
-//chromium.launch({ headless: false, slowMo: 50 });
-
-(async () => {
-    (async () => {
-        const browser = await webkit.launch();
-        });
-  const page = await context.newPage();
-  await page.goto('https://web.gencat.cat/ca/inici/');
-  await page.click('text="agenda cultural"');
-  await page.waitForRequest(/.*preview\/pwa/);
-  await page.screenshot({ path: 'https://web.gencat.cat/ca/inici/' });
-  await browser.close();
-})();
- */
-/*
-const {chromium} = require('node_modules/playwright');
-
-
-(async () => {
-  for (const browserType of ['chromium', 'firefox', 'webkit']) {
-    const browser = await playwright[browserType].launch();
-    const context = await browser.newContext();
-    const page = await context.newPage();
-    await page.goto('https://web.gencat.cat/ca/inici/');
-    await page.screenshot({ path: `https://web.gencat.cat/ca/inici/` });
-    await browser.close();
-  }
-})();
-*/
 const playwright = require('playwright');
 
 (async () => {
