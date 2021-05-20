@@ -1,8 +1,10 @@
 const playwright = require('playwright');
-
 (async () => {
     for (const browserType of ['chromium']) {
-        const browser = await playwright[browserType].launch();
+        const browser = await playwright[browserType].launch({
+          headless: false,
+          slowMo: 50,
+        });
         const context = await browser.newContext();
         const page = await context.newPage();
         await page.goto('https://web.gencat.cat/ca/inici/');
@@ -11,7 +13,7 @@ const playwright = require('playwright');
         await page.screenshot({ path: `Foto_De_Mostracion_De_Introduccion_De_Palabra_${browserType}.png` });
         await page.click('#fpca_capcalera_cercador > div.NG-inputSearch > button.NG-inputSearch__button');
         await page.screenshot({ path: `Foto_De_Resultado_De_La_Busqueda_${browserType}.png` });
-        
         await browser.close();
     }
 })();
+
